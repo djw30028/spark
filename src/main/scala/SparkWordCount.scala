@@ -2,11 +2,16 @@ import org.apache.spark.sql.SparkSession
 
 /**
   * Created by michaelwang on 10/16/16.
+  * sbt run
+  *
   */
 object SparkWordCount {
+
+
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder
-      .master("local")
+      //.master("local")
+      .master("spark://Michaels-MBP.hsd1.ga.comcast.net:7077")
       .appName("Spark Graph Frames")
       .getOrCreate()
 

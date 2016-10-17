@@ -4,13 +4,23 @@ import org.apache.spark.sql.SparkSession
 
 /**
   * Created by michaelwang on 10/16/16.
+  *
+  * sbt assembly
+  *
+  * /Users/michaelwang/myprogs/spark-2.0.0-bin-hadoop2.7
+  * ./bin/spark-submit --class "SparkPi" --master local[4] /Users/michaelwang/project/mypractice/SparkTest/target/scala-2.11/SparkTest-assembly-1.0.jar
+    Note: need to comment out .master("local")
+
+  *  with ./bin/spark-shell
+  *  need to set .master("local")
   */
 object SparkPi {
   def main(args: Array[String]) {
 
     val spark = SparkSession
       .builder
-      .appName("Spark Pi").master("local")
+      .appName("SparkPi")
+      //.master("local")
       .getOrCreate()
 
     val slices = if (args.length > 0) args(0).toInt else 2
