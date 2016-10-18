@@ -75,4 +75,23 @@ Step 2: `$ nc -lk 9999`
 
 Step 3: ./bin/spark-submit --class "NetworkWordCount" --master spark://Michaels-MBP.hsd1.ga.comcast.net:7077 /Users/michaelwang/project/mypractice/SparkTest/target/scala-2.11/SparkTest-assembly-1.0.jar localhost 9999
 
+==================================
+== KafkaWordCount/KafkaWordCountProducer, working fine
 
+Step 1: ./sbin/start-all.sh
+zkserver start
+kafka-server-start /usr/local/etc/kafka/server.properties
+
+Step 2:
+./bin/spark-submit --class "KafkaWordCountProducer" --master spark://Michaels-MBP.hsd1.ga.comcast.net:7077 /Users/michaelwang/project/mypractice/SparkTest/target/scala-2.11/SparkTest-assembly-1.0.jar localhost:9092 test 3 5
+  where hadoop000:9092 producer host port
+  test is topic
+  3 message/sec
+  5 word per message
+
+
+Step 3:
+./bin/spark-submit --class "KafkaWordCount" --master spark://Michaels-MBP.hsd1.ga.comcast.net:7077 /Users/michaelwang/project/mypractice/SparkTest/target/scala-2.11/SparkTest-assembly-1.0.jar localhost:2181 test-consumer-group test 1
+
+
+http://m.blog.csdn.net/article/details?id=42741757

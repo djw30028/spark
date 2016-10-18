@@ -14,7 +14,8 @@ libraryDependencies ++= Seq(
   "graphframes" % "graphframes" % "0.2.0-spark2.0-s_2.10" % "provided",
   "org.apache.spark" % "spark-sql_2.11" % "2.0.0",
   "org.apache.spark" % "spark-graphx_2.11" % "2.0.0",
-  "org.apache.spark" % "spark-streaming_2.11" % "2.0.0"
+  "org.apache.spark" % "spark-streaming_2.11" % "2.0.0",
+  "org.apache.spark" % "spark-streaming-kafka-0-8_2.11" % "2.0.0"
 )
 
 assemblyMergeStrategy in assembly := {
