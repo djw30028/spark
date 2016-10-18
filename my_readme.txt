@@ -62,6 +62,17 @@ Completed Applications
 =================================
 == Cluster Launch Scripts, need to update conf/spark-env.sh
 ./sbin/start-all.sh
-
+./sbin/stop-all.sh
 
 ./bin/spark-class org.apache.spark.deploy.Client kill <master url> <driver ID>
+
+=================================
+== NetworkWordCount
+Step 1: ./sbin/start-all.sh
+
+To run this on your local machine, you need to first run a Netcat server
+Step 2: `$ nc -lk 9999`
+
+Step 3: ./bin/spark-submit --class "NetworkWordCount" --master spark://Michaels-MBP.hsd1.ga.comcast.net:7077 /Users/michaelwang/project/mypractice/SparkTest/target/scala-2.11/SparkTest-assembly-1.0.jar localhost 9999
+
+

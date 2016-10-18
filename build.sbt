@@ -13,7 +13,8 @@ libraryDependencies ++= Seq(
   "org.apache.spark" % "spark-core_2.11" % "2.0.0" exclude ("org.apache.hadoop","hadoop-yarn-server-web-proxy"),
   "graphframes" % "graphframes" % "0.2.0-spark2.0-s_2.10" % "provided",
   "org.apache.spark" % "spark-sql_2.11" % "2.0.0",
-  "org.apache.spark" % "spark-graphx_2.11" % "2.0.0"
+  "org.apache.spark" % "spark-graphx_2.11" % "2.0.0",
+  "org.apache.spark" % "spark-streaming_2.11" % "2.0.0"
 )
 
 assemblyMergeStrategy in assembly := {
